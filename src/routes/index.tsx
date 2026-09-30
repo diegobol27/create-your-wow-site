@@ -466,10 +466,10 @@ function Bloques({ bloques }: { bloques: Bloque[] }) {
 function Index() {
   return (
     <main className="relative overflow-hidden">
-      <header className="absolute inset-x-0 top-0 z-20 border-b-4 border-primary bg-primary/90 shadow-lg">
+      <header className="absolute inset-x-0 top-0 z-20">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <img src={logo.url} alt="PivoK" className="h-20 sm:h-24 w-auto" />
-          <div className="hidden gap-6 text-sm font-medium md:flex">
+          <div className="hidden items-center gap-6 rounded-full bg-primary px-8 py-3 text-sm font-semibold shadow-lg md:flex">
             {lineas.map((l) => (
               <a key={l.id} href={`#${l.id}`} className="hover:text-background">{l.nombre.replace("PivoK ", "")}</a>
             ))}
