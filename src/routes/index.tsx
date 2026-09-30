@@ -361,7 +361,7 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
         </div>
 
         {l.destacados && (
-          <div className={`mt-14 grid gap-4 sm:grid-cols-2 ${l.destacados.length >= 3 ? "lg:grid-cols-" + l.destacados.length : ""}`}>
+          <div className={`mt-14 grid gap-4 sm:grid-cols-2 ${l.destacados.length === 4 ? "lg:grid-cols-4" : l.destacados.length === 3 ? "lg:grid-cols-3" : ""}`}>
             {l.destacados.map((d) => (
               <div key={d.t} className="card-soft rounded-2xl p-6">
                 <h3 className="text-lg font-semibold text-primary">{d.t}</h3>
