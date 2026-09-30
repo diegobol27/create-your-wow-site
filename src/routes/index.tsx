@@ -349,8 +349,8 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
     <section id={l.id} className="relative border-t border-border py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-          <div className="rounded-[2rem] bg-foreground p-8">
-            <img src={l.logo} alt={l.nombre} loading="lazy" className="mx-auto w-full max-w-md" />
+          <div className="p-4">
+            <img src={l.logo} alt={l.nombre} loading="lazy" className="mx-auto w-full max-w-md drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]" />
           </div>
           <div>
             <h2 className="text-4xl leading-tight font-bold sm:text-5xl">{l.titular}</h2>
@@ -497,7 +497,7 @@ function Index() {
           </p>
           <div className="mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
             {lineas.map((l) => (
-              <a key={l.id} href={`#${l.id}`} className="rounded-2xl bg-foreground p-3 transition-transform hover:scale-105">
+              <a key={l.id} href={`#${l.id}`} className="rounded-2xl p-2 transition-transform hover:scale-105">
                 <img src={l.logo} alt={l.nombre} className="w-full" />
               </a>
             ))}
