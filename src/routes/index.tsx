@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/nuevo_logo.png.asset.json";
+import mujer from "@/assets/mujer-cohete.png";
 import fondo from "@/assets/fondo.jpg.asset.json";
 import logoEstelar from "@/assets/LogoLineaSoftware.png.asset.json";
 import logoGenesis from "@/assets/LogoLineaProducto.png.asset.json";
@@ -489,9 +490,12 @@ function Index() {
           <span className="inline-flex rounded-full border border-border bg-card/60 px-4 py-1.5 text-xs tracking-[0.2em] uppercase backdrop-blur">
             Nueva marca
           </span>
-          <h1 className="mt-8 max-w-4xl text-5xl leading-[0.95] font-bold sm:text-7xl lg:text-8xl">
-            Evoluciona.<br />Conecta. Crece.
-          </h1>
+          <div className="flex items-center gap-4">
+            <h1 className="mt-8 max-w-4xl text-5xl leading-[0.95] font-bold sm:text-7xl lg:text-8xl">
+              Evoluciona.<br />Conecta. Crece.
+            </h1>
+            <img src={mujer} alt="Mujer volando sobre un cohete" className="hidden w-64 animate-[float_6s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:block lg:w-96" />
+          </div>
           <p className="mt-8 max-w-xl text-lg">
             Soluciones Integrales de Software ahora es <strong>PivoK</strong>. Cuatro líneas para llevar tu negocio más lejos.
           </p>
