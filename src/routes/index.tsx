@@ -466,15 +466,15 @@ function Bloques({ bloques }: { bloques: Bloque[] }) {
 function Index() {
   return (
     <main className="relative overflow-hidden">
-      <header className="absolute inset-x-0 top-0 z-20">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <img src={logo.url} alt="PivoK" className="h-12 w-auto" />
+      <header className="absolute inset-x-0 top-0 z-20 border-b-4 border-primary bg-primary/90 shadow-lg">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+          <img src={logo.url} alt="PivoK" className="h-20 sm:h-24 w-auto" />
           <div className="hidden gap-6 text-sm font-medium md:flex">
             {lineas.map((l) => (
-              <a key={l.id} href={`#${l.id}`} className="hover:text-primary">{l.nombre.replace("PivoK ", "")}</a>
+              <a key={l.id} href={`#${l.id}`} className="hover:text-background">{l.nombre.replace("PivoK ", "")}</a>
             ))}
           </div>
-          <a href="#contacto" className="rounded-full border border-border px-5 py-2 text-sm font-medium hover:bg-muted">
+          <a href="#contacto" className="rounded-full bg-background px-5 py-2 text-sm font-semibold hover:opacity-90">
             Hablemos
           </a>
         </nav>
