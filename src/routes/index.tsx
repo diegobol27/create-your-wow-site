@@ -471,10 +471,10 @@ function Index() {
           <img src={logo.url} alt="PivoK" className="h-20 sm:h-24 w-auto" />
           <div className="hidden gap-6 text-sm font-medium md:flex">
             {lineas.map((l) => (
-              <a key={l.id} href={`#${l.id}`} className="hover:text-primary">{l.nombre.replace("PivoK ", "")}</a>
+              <a key={l.id} href={`#${l.id}`} className="hover:text-background">{l.nombre.replace("PivoK ", "")}</a>
             ))}
           </div>
-          <a href="#contacto" className="rounded-full border border-border px-5 py-2 text-sm font-medium hover:bg-muted">
+          <a href="#contacto" className="rounded-full bg-background px-5 py-2 text-sm font-semibold hover:opacity-90">
             Hablemos
           </a>
         </nav>
