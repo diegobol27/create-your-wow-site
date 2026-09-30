@@ -499,7 +499,7 @@ function Index() {
           <p className="mt-8 max-w-xl text-lg">
             Soluciones Integrales de Software ahora es <strong>PivoK</strong>. Cuatro líneas para llevar tu negocio más lejos.
           </p>
-          <div className="mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
             {lineas.map((l) => (
               <a key={l.id} href={`#${l.id}`} className="rounded-2xl p-2 transition-transform hover:scale-105">
                 <img src={l.logo} alt={l.nombre} className="w-full" />
