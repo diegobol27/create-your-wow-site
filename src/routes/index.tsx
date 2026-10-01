@@ -522,12 +522,12 @@ function Index() {
               <a href="https://wa.me/573016245133" className="glow inline-flex rounded-full bg-brand px-8 py-4 font-semibold text-primary-foreground">
                 Escribir por WhatsApp
               </a>
-              <a href="mailto:hola@pivok.com" className="inline-flex rounded-full border border-border px-8 py-4 font-semibold hover:bg-muted">
-                hola@pivok.com
+              <a href="mailto:info@pivok.com.co" className="inline-flex rounded-full border border-border px-8 py-4 font-semibold hover:bg-muted">
+                info@pivok.com.co
               </a>
             </div>
             <p className="mt-8 text-sm text-muted-foreground">
-              www.pivok.com · LinkedIn: Pivok · Instagram: @somospivok · Tel. 301 624 5133
+              www.pivok.com · Tel. 301 624 5133
             </p>
           </div>
         </div>
