@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/nuevo_logo.png.asset.json";
 import mujer from "@/assets/mujer-cohete.png";
+import astronauta from "@/assets/astronauta.png";
+import aliadoBinapps from "@/assets/aliado-binapps.png.asset.json";
+import aliadoBuk from "@/assets/aliado-buk.png.asset.json";
+import aliadoMedifolios from "@/assets/aliado-medifolios.png.asset.json";
 import fondo from "@/assets/fondo.jpg.asset.json";
 import logoEstelar from "@/assets/LogoLineaSoftware.png.asset.json";
 import logoGenesis from "@/assets/LogoLineaProducto.png.asset.json";
@@ -372,6 +376,23 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
           </div>
         )}
 
+        {l.id === "estelar" && (
+          <div className="mt-16 text-center">
+            <p className="mx-auto max-w-3xl text-xl font-medium sm:text-2xl">
+              Pero esta constelación no trabaja sola, tenemos unos aliados estratégicos que también están en órbita
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-16 gap-y-10">
+              {[
+                { src: aliadoBinapps.url, alt: "Binapps" },
+                { src: aliadoBuk.url, alt: "Buk" },
+                { src: aliadoMedifolios.url, alt: "Medifolios" },
+              ].map((a) => (
+                <img key={a.alt} src={a.src} alt={a.alt} loading="lazy" className="h-14 w-auto object-contain opacity-90 transition hover:scale-105 hover:opacity-100 sm:h-16" />
+              ))}
+            </div>
+          </div>
+        )}
+
         {l.bloques && l.id !== "genesis" && <Bloques bloques={l.bloques} />}
 
         <h3 className="mt-20 text-2xl font-bold uppercase tracking-wide sm:text-3xl">{l.procesoTitulo}</h3>
@@ -487,9 +508,6 @@ function Index() {
           style={{ background: "linear-gradient(to bottom, transparent 40%, var(--background))" }}
         />
         <div className="relative mx-auto w-full max-w-6xl px-6 pt-32 pb-20">
-          <span className="inline-flex rounded-full border border-border bg-card/60 px-4 py-1.5 text-xs tracking-[0.2em] uppercase backdrop-blur">
-            Nueva marca
-          </span>
           <div className="flex items-center gap-4">
             <h1 className="mt-8 max-w-4xl text-5xl leading-[0.95] font-bold sm:text-7xl lg:text-8xl">
               Evoluciona.<br />Conecta. Crece.
@@ -517,6 +535,7 @@ function Index() {
         <div className="card-soft relative overflow-hidden rounded-[2rem] p-10 text-center sm:p-20">
           <div className="absolute inset-0 bg-[var(--gradient-glow)] opacity-70" />
           <div className="relative">
+            <img src={astronauta} alt="Astronauta con diadema y micrófono listo para atenderte" loading="lazy" width={1024} height={1024} className="mx-auto mb-6 w-48 animate-[float_6s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:w-64" />
             <h2 className="text-4xl font-bold sm:text-6xl">Cuéntanos qué necesitas</h2>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a href="https://wa.me/573016245133" className="glow inline-flex rounded-full bg-brand px-8 py-4 font-semibold text-primary-foreground">
@@ -535,7 +554,15 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 sm:flex-row sm:justify-between">
-          <img src={logo.url} alt="PivoK" loading="lazy" className="h-10 w-auto" />
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
+            <img src={logo.url} alt="PivoK" loading="lazy" className="h-10 w-auto" />
+            <p className="text-sm">
+              No nos olvides:{" "}
+              <a href="https://www.solucionesintegralesdesoftware.com" target="_blank" rel="noreferrer" className="font-semibold text-primary hover:underline">
+                www.solucionesintegralesdesoftware.com
+              </a>
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} PivoK · Evoluciona. Conecta. Crece.</p>
         </div>
       </footer>
