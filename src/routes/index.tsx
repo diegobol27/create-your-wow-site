@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/nuevo_logo.png.asset.json";
 import mujer from "@/assets/mujer-cohete.png";
+import astronauta from "@/assets/astronauta.png";
+import aliadoBinapps from "@/assets/aliado-binapps.png.asset.json";
+import aliadoBuk from "@/assets/aliado-buk.png.asset.json";
+import aliadoMedifolios from "@/assets/aliado-medifolios.png.asset.json";
 import fondo from "@/assets/fondo.jpg.asset.json";
 import logoEstelar from "@/assets/LogoLineaSoftware.png.asset.json";
 import logoGenesis from "@/assets/LogoLineaProducto.png.asset.json";
