@@ -5,6 +5,9 @@ import astronauta from "@/assets/astronauta.png";
 import aliadoBinapps from "@/assets/aliado-binapps.png.asset.json";
 import aliadoBuk from "@/assets/aliado-buk.png.asset.json";
 import aliadoMedifolios from "@/assets/aliado-medifolios.png.asset.json";
+import somosMef from "@/assets/somos-mef.png.asset.json";
+import somosSello from "@/assets/somos-sello.png.asset.json";
+import somosCluster from "@/assets/somos-cluster.png.asset.json";
 import fondo from "@/assets/fondo.jpg.asset.json";
 import logoEstelar from "@/assets/LogoLineaSoftware.png.asset.json";
 import logoGenesis from "@/assets/LogoLineaProducto.png.asset.json";
@@ -345,6 +348,47 @@ const lineas: Linea[] = [
   },
 ];
 
+function Star({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 1.5l2.6 7.9 7.9 2.6-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6z" />
+    </svg>
+  );
+}
+
+function QueHacemosEstelar({ bloque }: { bloque: Bloque }) {
+  return (
+    <div className="mt-20">
+      <div className="flex items-center gap-3">
+        <Star className="h-7 w-7 text-primary" />
+        <h3 className="text-2xl font-bold uppercase tracking-wide sm:text-3xl">{bloque.titulo}</h3>
+      </div>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {bloque.items.map((it, k) => {
+          const [t, ...rest] = it.split(" — ");
+          return (
+            <article
+              key={it}
+              className={`card-soft group relative overflow-hidden rounded-3xl p-7 transition hover:-translate-y-1 hover:border-primary/60 ${k === 0 ? "lg:col-span-2" : ""}`}
+            >
+              <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[var(--gradient-glow)] opacity-60 blur-2xl" />
+              <Star className="absolute top-5 right-6 h-3 w-3 text-secondary opacity-70" />
+              <Star className="absolute top-12 right-14 h-2 w-2 text-primary opacity-60" />
+              <div className="relative">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-primary-foreground shadow-lg transition group-hover:rotate-12">
+                  <Star className="h-7 w-7" />
+                </div>
+                <h4 className="mt-5 text-lg font-semibold text-primary">{t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{rest.join(" — ")}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function Check() {
   return <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand" />;
 }
@@ -393,7 +437,8 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
           </div>
         )}
 
-        {l.bloques && l.id !== "genesis" && <Bloques bloques={l.bloques} />}
+        {l.bloques && l.id === "supernova" && <QueHacemosEstelar bloque={l.bloques[0]} />}
+        {l.bloques && l.id !== "genesis" && l.id !== "supernova" && <Bloques bloques={l.bloques} />}
 
         <h3 className="mt-20 text-2xl font-bold uppercase tracking-wide sm:text-3xl">{l.procesoTitulo}</h3>
         <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -556,12 +601,20 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 sm:flex-row sm:justify-between">
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
             <img src={logo.url} alt="PivoK" loading="lazy" className="h-10 w-auto" />
-            <p className="text-sm">
-              No nos olvides:{" "}
-              <a href="https://www.solucionesintegralesdesoftware.com" target="_blank" rel="noreferrer" className="font-semibold text-primary hover:underline">
-                www.solucionesintegralesdesoftware.com
-              </a>
-            </p>
+            <div className="text-center sm:text-left">
+              <p className="text-sm">
+                No nos olvides:{" "}
+                <a href="https://www.solucionesintegralesdesoftware.com" target="_blank" rel="noreferrer" className="font-semibold text-primary hover:underline">
+                  www.solucionesintegralesdesoftware.com
+                </a>
+              </p>
+              <p className="mt-6 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Somos:</p>
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:justify-start">
+                <img src={somosMef.url} alt="Mujeres en Fintech" loading="lazy" className="h-20 w-auto object-contain" />
+                <img src={somosSello.url} alt="Sello Rosa Caldas" loading="lazy" className="h-20 w-auto object-contain" />
+                <img src={somosCluster.url} alt="Cámara de Comercio de Manizales, Comunidad Clúster y Mantix" loading="lazy" className="h-12 w-auto object-contain sm:h-14" />
+              </div>
+            </div>
           </div>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} PivoK · Evoluciona. Conecta. Crece.</p>
         </div>
