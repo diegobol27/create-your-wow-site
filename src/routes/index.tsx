@@ -437,7 +437,7 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
           </div>
         )}
 
-        {l.bloques?.[0] && l.id === "supernova" && <QueHacemosEstelar bloque={l.bloques[0]} />}
+        {l.id === "supernova" && l.bloques?.map((b) => <QueHacemosEstelar key={b.titulo} bloque={b} />)}
         {l.bloques && l.id !== "genesis" && l.id !== "supernova" && <Bloques bloques={l.bloques} />}
 
         <h3 className="mt-20 text-2xl font-bold uppercase tracking-wide sm:text-3xl">{l.procesoTitulo}</h3>
