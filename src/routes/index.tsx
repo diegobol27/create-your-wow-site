@@ -14,24 +14,81 @@ import logoGenesis from "@/assets/LogoLineaProducto.png.asset.json";
 import logoOrbita from "@/assets/LogoLineaDlloOrganizacional.png.asset.json";
 import logoSupernova from "@/assets/LogoLineaIA.png.asset.json";
 
+const SEO_TITLE = "PivoK | Software a medida, consultoría e IA para pymes en Colombia";
+const SEO_DESC =
+  "PivoK (antes Soluciones Integrales de Software): desarrollo de software a medida, consultoría con inteligencia artificial, marketing, ventas y lanzamiento de productos para pymes y emprendimientos en Colombia.";
+
+const SEO_ALT: Record<string, string> = {
+  estelar: "desarrollo de software a medida, SaaS y soporte técnico para empresas",
+  genesis: "estrategia de lanzamiento de productos y pricing",
+  orbita: "consultoría de marketing y ventas para pymes",
+  supernova: "consultoría con inteligencia artificial y transformación digital para pymes",
+};
+
+const SEO_TEXTO: Record<string, string> = {
+  estelar:
+    "Empresa de desarrollo de software en Colombia: software a medida para pymes, desarrollo de aplicaciones web y móviles, implementación de software SaaS, integración de sistemas empresariales, desarrollo de MVP y soporte técnico para empresas con SLA y mantenimiento preventivo.",
+  genesis:
+    "Estrategia de lanzamiento de productos, estrategia de pricing y go to market: validación de ideas de negocio, consultoría de diseño de producto, plan de lanzamiento para emprendedores y modelos de monetización para startups en Colombia.",
+  orbita:
+    "Consultoría de marketing para pymes y consultoría de ventas para pequeñas empresas: estrategia de comunicación empresarial, plan de marketing, estrategia comercial para emprendimientos y consultoría de crecimiento empresarial para conseguir más clientes y escalar tu negocio.",
+  supernova:
+    "Consultoría con inteligencia artificial para pymes y transformación digital: diagnóstico empresarial, automatización de procesos con IA para pequeñas empresas, decisiones basadas en datos, KPIs y métricas, y asesoría para implementar inteligencia artificial en tu empresa.",
+};
+
+const SEO_KEYWORDS = [
+  "pivok", "pivok colombia", "pivok consultoría", "pivok software", "pivok supernova", "pivok estelar",
+  "pivok génesis", "pivok órbita", "soluciones integrales de software",
+  "consultoría con inteligencia artificial para pymes", "transformación digital para pymes",
+  "implementar inteligencia artificial en mi empresa", "consultoría estratégica para pymes",
+  "desarrollo de software a medida", "empresa de desarrollo de software en Colombia",
+  "implementación de software saas", "soporte técnico para empresas", "desarrollo de aplicaciones web y móviles",
+  "estrategia de lanzamiento de productos", "estrategia de pricing", "consultoría de diseño de producto",
+  "estrategia go to market", "validación de ideas de negocio", "consultoría de marketing para pymes",
+  "consultoría de ventas para pequeñas empresas", "estrategia de comunicación empresarial",
+  "asesoría para emprendimientos", "consultoría de crecimiento empresarial",
+  "consultoría para pymes y emprendimientos", "consultoría empresarial en Colombia",
+  "empresa de tecnología y consultoría",
+].join(", ");
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PivoK",
+  alternateName: "Soluciones Integrales de Software",
+  url: "https://www.pivok.com",
+  email: "info@pivok.com.co",
+  telephone: "+57 301 624 5133",
+  slogan: "Evoluciona. Conecta. Crece.",
+  description: SEO_DESC,
+  areaServed: "CO",
+  sameAs: ["https://www.solucionesintegralesdesoftware.com"],
+  makesOffer: [
+    ["PivoK Estelar", "Desarrollo de software a medida, implementación SaaS y soporte técnico para empresas"],
+    ["PivoK Génesis", "Estrategia de lanzamiento de productos, pricing y go to market"],
+    ["PivoK Órbita", "Consultoría de marketing, ventas y crecimiento empresarial para pymes"],
+    ["PivoK Supernova", "Consultoría con inteligencia artificial y transformación digital para pymes"],
+  ].map(([name, description]) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name, description, areaServed: "CO" },
+  })),
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PivoK | Estelar, Génesis, Órbita y Supernova" },
-      {
-        name: "description",
-        content:
-          "Soluciones Integrales de Software ahora es PivoK: software a la medida, lanzamiento de productos, consultoría y transformación digital con IA.",
-      },
-      { property: "og:title", content: "PivoK | Impulsamos tu negocio más lejos" },
-      {
-        property: "og:description",
-        content:
-          "Cuatro líneas para llevar tu negocio a otra órbita: PivoK Estelar, Génesis, Órbita y Supernova.",
-      },
+      { title: SEO_TITLE },
+      { name: "description", content: SEO_DESC },
+      { name: "keywords", content: SEO_KEYWORDS },
+      { property: "og:title", content: SEO_TITLE },
+      { property: "og:description", content: SEO_DESC },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "es_CO" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSON_LD) }],
   }),
   component: Index,
 });
@@ -399,13 +456,16 @@ function LineaSection({ l, i }: { l: Linea; i: number }) {
       <div className="mx-auto max-w-6xl px-6">
         <div className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
           <div className="p-4">
-            <img src={l.logo} alt={l.nombre} loading="lazy" className="mx-auto w-full max-w-md drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]" />
+            <img src={l.logo} alt={`${l.nombre} – ${SEO_ALT[l.id] ?? ""}`} loading="lazy" className="mx-auto w-full max-w-md drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]" />
           </div>
           <div>
             <h2 className="text-4xl leading-tight font-bold sm:text-5xl">{l.titular}</h2>
             {l.intro.map((p) => (
               <p key={p} className="mt-5 text-lg text-muted-foreground">{p}</p>
             ))}
+            {SEO_TEXTO[l.id] && (
+              <p className="mt-5 text-sm text-muted-foreground/80">{SEO_TEXTO[l.id]}</p>
+            )}
           </div>
         </div>
 
