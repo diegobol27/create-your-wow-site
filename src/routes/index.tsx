@@ -666,8 +666,10 @@ function Index() {
                 info@pivok.com.co
               </a>
             </div>
-            <p className="mt-8 text-sm text-muted-foreground">
-              www.pivok.com · Tel. 301 624 5133
+            <p className="mt-10 font-display text-2xl font-bold text-foreground sm:text-3xl">
+              <span className="text-gradient">www.pivok.com.co</span>
+              <span className="mx-3 text-muted-foreground">·</span>
+              Tel. 301 624 5133
             </p>
           </div>
         </div>
