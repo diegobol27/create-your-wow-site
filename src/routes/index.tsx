@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import whatsappLogo from "@/assets/whatsapp-logo.svg";
+import instagramLogo from "@/assets/instagram-logo.svg";
+import facebookLogo from "@/assets/facebook-logo.svg";
+import linkedinLogo from "@/assets/linkedin-logo.svg";
 import logoSrc from "@/assets/nuevo_logo.png";
 const logo = { url: logoSrc };
 import mujer from "@/assets/mujer-cohete.png";
@@ -692,15 +695,27 @@ function Index() {
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} PivoK · Evoluciona. Conecta. Crece.</p>
         </div>
       </footer>
-      <a
-        href="https://api.whatsapp.com/send?phone=573016245133&text=Hola%20PivoK%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Escríbenos por WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-card shadow-lg ring-2 ring-primary/60 transition-transform hover:scale-110"
-      >
-        <img src={whatsappLogo} alt="WhatsApp PivoK" className="h-11 w-11" />
-      </a>
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        {[
+          { href: "https://www.instagram.com/pivok_sis_/", img: instagramLogo, label: "Instagram PivoK" },
+          { href: "https://web.facebook.com/Piivokk", img: facebookLogo, label: "Facebook PivoK" },
+          { href: "https://www.linkedin.com/company/soluciones-integrales-de-software/posts/?viewAsMember=true", img: linkedinLogo, label: "LinkedIn PivoK" },
+        ].map((s) => (
+          <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-card shadow-lg ring-2 ring-primary/40 transition-transform hover:scale-110">
+            <img src={s.img} alt={s.label} className="h-8 w-8" />
+          </a>
+        ))}
+        <a
+          href="https://api.whatsapp.com/send?phone=573016245133&text=Hola%20PivoK%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Escríbenos por WhatsApp"
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-card shadow-lg ring-2 ring-primary/60 transition-transform hover:scale-110"
+        >
+          <img src={whatsappLogo} alt="WhatsApp PivoK" className="h-11 w-11" />
+        </a>
+      </div>
     </main>
   );
 }
