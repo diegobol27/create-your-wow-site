@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import whatsappLogo from "@/assets/whatsapp-logo.svg";
 import logoSrc from "@/assets/nuevo_logo.png";
 const logo = { url: logoSrc };
 import mujer from "@/assets/mujer-cohete.png";
@@ -691,6 +692,15 @@ function Index() {
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} PivoK · Evoluciona. Conecta. Crece.</p>
         </div>
       </footer>
+      <a
+        href="https://api.whatsapp.com/send?phone=573016245133&text=Hola%20PivoK%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escríbenos por WhatsApp"
+        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-card shadow-lg ring-2 ring-primary/60 transition-transform hover:scale-110"
+      >
+        <img src={whatsappLogo} alt="WhatsApp PivoK" className="h-11 w-11" />
+      </a>
     </main>
   );
 }
