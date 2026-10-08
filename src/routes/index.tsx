@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ContactForm } from "@/components/ContactForm";
 import whatsappLogo from "@/assets/whatsapp-logo.svg";
 import instagramLogo from "@/assets/instagram-logo.svg";
 import facebookLogo from "@/assets/facebook-logo.svg";
@@ -656,8 +657,13 @@ function Index() {
         <div className="card-soft relative overflow-hidden rounded-[2rem] p-10 text-center sm:p-20">
           <div className="absolute inset-0 bg-[var(--gradient-glow)] opacity-70" />
           <div className="relative">
-            <img src={astronauta} alt="Astronauta con diadema y micrófono listo para atenderte" loading="lazy" width={1024} height={1024} className="mx-auto mb-6 w-48 animate-[float_6s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:w-64" />
-            <h2 className="text-4xl font-bold sm:text-6xl">Cuéntanos qué necesitas</h2>
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div>
+                <img src={astronauta} alt="Astronauta con diadema y micrófono listo para atenderte" loading="lazy" width={1024} height={1024} className="mx-auto mb-6 w-48 animate-[float_6s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:w-64" />
+                <h2 className="text-4xl font-bold sm:text-6xl">Cuéntanos qué necesitas</h2>
+              </div>
+              <ContactForm />
+            </div>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a href="https://api.whatsapp.com/send?phone=573016245133&text=Hola%20PivoK%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" className="glow inline-flex rounded-full bg-brand px-8 py-4 font-semibold text-primary-foreground">
                 Escribir por WhatsApp
